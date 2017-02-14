@@ -27,4 +27,4 @@ gulp.task('minify-img-views', function() {
         .pipe(gulp.dest('views/images/'))
 });
 
-gulp.task('default', ['minify','minify-css','minify-img']);
+gulp.task('default', ['minify','minify-css','minify-img','minify-img-views']);
