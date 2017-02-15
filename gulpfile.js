@@ -1,35 +1,12 @@
 var gulp = require('gulp'),
   htmlmin = require('gulp-htmlmin'),
-  cleanCSS = require('gulp-clean-css'),
   imagemin = require('gulp-imagemin'),
   minifyInline = require('gulp-minify-inline'),
   inlinesource = require('gulp-inline-source');
 
-/*gulp.task('minify', function() {
-  return gulp.src('src/*.html')
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('./'));
-});*/
-
-/*gulp.task('minify-css', function() {
-  return gulp.src('src/css/*.css')
-    .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('./css/'));
-});
-gulp.task('inline-minify', function() {
-  return gulp.src('src/index.html')
-  .pipe(inline({
-    base: 'public/',
-    js: uglify,
-    css: cleanCSS({compatibility: 'ie8'}),
-    disabledTypes: ['svg', 'img'], // Only inline css files
-  }))
-  .pipe(htmlmin({collapseWhitespace: true}));
-  .pipe(gulp.dest('./');
-});*/
 
 
-gulp.task('inlinesource', function () {
+gulp.task('min-linesource', function () {
     return gulp.src('./src/*.html')
         .pipe(inlinesource())
         .pipe(minifyInline())
@@ -49,4 +26,4 @@ gulp.task('minify-img-views', function() {
         .pipe(gulp.dest('views/images/'))
 });
 
-gulp.task('default', ['inlinesource','minify-img','minify-img-views']);
+gulp.task('default', ['min-linesource','minify-img','minify-img-views']);
