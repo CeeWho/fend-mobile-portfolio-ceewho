@@ -17,7 +17,7 @@ gulp.task('min-linesource', function () {
 
 gulp.task('minify-img', function() {
     gulp.src('src/img/*')
-        .pipe(imagemin())
+        .pipe(webp())
         .pipe(gulp.dest('img/'))
 });
 gulp.task('minify-img-views', function() {
